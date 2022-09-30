@@ -1,0 +1,7 @@
+bot_token = 'vk1.a.pc3J5iFpTKhpJL5owZHZ7IYNKqfwxMd3v5bV5ASH1Pmoh-t9syNEw72z_18eiH6diPw45f5iRSzCTSH70OK63WbRGtSi317j4dy0cZLVkwWiJvBPf80yODBlG-4AFn9PgPsBOM5Rgv5m0td5DwmbfCldSqPGNFmigPJLPu5Bl8leVAbpU-E7GvrIkqdqvIG1'
+
+token_vk = 'vk1.a.SsdBEVbfW4bWwmRqCxckj-bAK4jmFS9xgTnkJl2PWolzoUmIFPiPD7WCK5D7F4eNuGshHCmrJYmTBXpDroj9JK7kM8Gd8eDpCoVefO9IGnenSMP9oRh4YGh4iG0M03YYKBtIhomrUaxV0Hzid8SBXip7X--ensKVYYTDAgodQSqCoI37tKpAhdxsw-JIWc_g'
+
+database = 'vkinder'
+user = 'postgres'
+password = 'python123'
