@@ -8,7 +8,7 @@ from datetime import date
 def get_user_info(user_id):
     vk = vk_api.VkApi(token=bot_token)
     response = vk.method('users.get', {'user_ids': user_id, 'fields': 'bdate, sex, city, relation'})
-    result = responce[0]
+    result = response[0]
 
     bdate_pattern = r'\d{1,2}.\d{1,2}.\d{4}'
 
@@ -25,7 +25,7 @@ def get_user_info(user_id):
     info = VKUser(result['id'], result['first_name'], result['last_name'], bdate,
                   result['sex'], city)
 
-    info.url = f"https://vk.com/id{response[0]['id']}"
+    info.url = f"https://vk.com/id{result['id']}"
 
     return info
 
