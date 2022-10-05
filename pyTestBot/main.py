@@ -53,11 +53,7 @@ def check_str(pattern, user_str):
 
 def search_params(new_str):
     params = new_str.split(' ')
-    if params[0] == 'женский':
-        params[0] = 1
-    elif params[0] == 'мужской':
-        params[0] = 2
-    return params
+    return 1 if params[0] == 'женский' else 2
 
 
 def show_one_user(user_id, users_to_be_shown) -> None:
@@ -121,8 +117,13 @@ def show_black_list(conn, user_id):
 
 def search_pairs(new_params, user_id):
     if new_params != '':
-        peoples = search_possible_pair(new_params[0], new_params[1][:2],
-                                       new_params[1][3:], new_params[2], int(new_params[3]))
+        sex = new_params[0]
+        age_from = new_params[1][:2]
+        age_to = new_params[1][3:]
+        city = new_params[2]
+        count = int(new_params[3])
+        
+        peoples = search_possible_pair(sex, age_from, age_to, city, count)
 
         send_message(user_id, 'Подождите, идет загрузка результатов ...')
 

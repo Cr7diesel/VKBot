@@ -8,21 +8,22 @@ from datetime import date
 def get_user_info(user_id):
     vk = vk_api.VkApi(token=bot_token)
     response = vk.method('users.get', {'user_ids': user_id, 'fields': 'bdate, sex, city, relation'})
+    result = responce[0]
 
     bdate_pattern = r'\d{1,2}.\d{1,2}.\d{4}'
 
-    if 'city' in response[0]:
-        city = response[0]['city']['title']
+    if 'city' in result:
+        city = result['city']['title']
     else:
         city = 'Город не указан'
 
-    if 'bdate' in response[0] and re.match(bdate_pattern, response[0]['bdate']):
-        bdate = response[0]['bdate']
+    if 'bdate' in result and re.match(bdate_pattern, result['bdate']):
+        bdate = result['bdate']
     else:
         bdate = date.today()
 
-    info = VKUser(response[0]['id'], response[0]['first_name'], response[0]['last_name'], bdate,
-                  response[0]['sex'], city)
+    info = VKUser(result['id'], result['first_name'], result['last_name'], bdate,
+                  result['sex'], city)
 
     info.url = f"https://vk.com/id{response[0]['id']}"
 
@@ -59,7 +60,7 @@ def get_photos(person_id):
     users_photos = []
     user_photos_dict = {}
 
-    for item in range(len(response['items'])):
+    for item in response['items']:
         users_photos.append([response['items'][item]['likes']['count'],
                              response['items'][item]['id']])
 
